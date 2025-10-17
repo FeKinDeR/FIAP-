@@ -11,7 +11,12 @@
   <!-- 🔝 Navbar fixa -->
   <nav class="navbar">
     <div class="logo">AgroTech Brasil</div>
-    <ul class="nav-links">
+
+    <!-- Botão hamburguer -->
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+    <!-- Links do menu -->
+    <ul class="nav-links" id="nav-links">
       <li><a href="#inicio">Início</a></li>
       <li><a href="#tecnologias">Tecnologias</a></li>
       <li><a href="#links">Órgãos e Iniciativas</a></li>
@@ -19,11 +24,13 @@
     </ul>
   </nav>
 
-  <!-- 🏞️ Cabeçalho -->
-  <header id="inicio">
-    <h1>Tecnologias no Agronegócio</h1>
-    <p>Inovações que estão transformando o campo e combatendo a fome no Brasil.</p>
-  </header>
+  <!-- 🌅 Banner animado -->
+  <section class="banner" id="inicio">
+    <div class="banner-texto">
+      <h1>Tecnologias no Agronegócio</h1>
+      <p>Inovação, sustentabilidade e o futuro do campo brasileiro.</p>
+    </div>
+  </section>
 
   <!-- 🌾 Introdução -->
   <section class="intro">
@@ -75,8 +82,18 @@
 
   <!-- ⚙️ Rodapé -->
   <footer>
-    <p>&copy; 2025 - Projeto FIAP sobre Tecnologias no Agronegócio</p>
+    <p>&copy; 2025 - Projeto Educacional sobre Tecnologias no Agronegócio</p>
   </footer>
+
+  <!-- Script para o menu responsivo -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 
 </body>
 </html>

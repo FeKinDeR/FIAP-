@@ -24,36 +24,85 @@ body {
   z-index: 1000;
 }
 
-.navbar .logo {
+.logo {
   font-size: 1.4rem;
   font-weight: bold;
 }
 
-.navbar .nav-links {
+/* Botão hamburguer */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Links do menu */
+.nav-links {
   list-style: none;
   display: flex;
   gap: 25px;
   margin: 0;
 }
 
-.navbar .nav-links li a {
+.nav-links li a {
   color: white;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
-.navbar .nav-links li a:hover {
+.nav-links li a:hover {
   color: #c8e6c9;
 }
 
-/* Espaço para compensar navbar fixa */
-header {
-  margin-top: 80px;
-  background: linear-gradient(to right, #4CAF50, #81C784);
+/* 🌅 Banner animado */
+.banner {
+  margin-top: 70px;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   text-align: center;
-  padding: 60px 20px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  animation: bannerSlide 20s infinite alternate;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.banner-texto {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-texto h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.banner-texto p {
+  font-size: 1.2rem;
+}
+
+/* Animação do banner */
+@keyframes bannerSlide {
+  0% {
+    background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80');
+  }
+  50% {
+    background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80');
+  }
+  100% {
+    background-image: url('https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=1400&q=80');
+  }
 }
 
 /* 🌾 Seções */
@@ -150,4 +199,41 @@ footer {
   background: #4CAF50;
   color: white;
   font-size: 0.9rem;
+}
+
+/* 📱 Responsividade */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #388e3c;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .intro {
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .banner-texto h1 {
+    font-size: 1.8rem;
+  }
 }
